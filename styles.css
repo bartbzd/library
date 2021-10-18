@@ -1,8 +1,21 @@
+/* GLOBAL */
 * {
   box-sizing: border-box;
   outline: none;
   padding: 0 auto;
   margin: 0 auto;
+}
+/* ELEMENTS */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 8px;
+  height: 35px;
 }
 
 /* FOOTER */
