@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+  padding: 0 auto;
+  margin: 0 auto;
+}
+
+/* FOOTER */
+i {
+  margin: 0 10px;
+  color: black;
+  text-decoration: none;
+  transition: ease-in-out 0.15s;
+}
+i:visited {
+  color: black;
+  text-decoration: none;
+}
+i:hover {
+  transform: translateY(-0.2rem);
+}
