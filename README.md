@@ -1,6 +1,6 @@
 # Library
 
-- Library application for books.
+- Library application for storing books.
 
 ## Languages used:
 
