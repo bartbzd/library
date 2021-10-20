@@ -1,5 +1,10 @@
 const submitBtn = document.querySelector("#submit");
 const cardGrid = document.querySelector(".card-grid");
+const bookForm = document.querySelector("form");
+const formModal = document.querySelector(".modal");
+const addBookBtn = document.createElement("button");
+addBookBtn.textContent = "New";
+const mainDisplay = document.querySelector("main").append(addBookBtn);
 
 let myLibrary = [];
 
@@ -19,14 +24,22 @@ function BookFromInput() {
   return new Book(title, author, pages, read);
 }
 
+function openForm() {
+  bookForm.classList.remove("hidden");
+  formModal.style.display = "block";
+}
 function addBook(e) {
   e.preventDefault();
   const newBook = BookFromInput();
+  if (newBook.title === "" || newBook.author === "" || newBook.page === "") {
+    return;
+  }
   myLibrary.push(newBook);
-  myLibrary.slice(0, 1);
   console.log(myLibrary);
-  createBookCard(newBook);
   updateLibrary();
+  bookForm.classList.add("hidden");
+  bookForm.classList.remove("form");
+  formModal.style.display = "none";
 }
 
 function updateLibrary() {
@@ -62,4 +75,5 @@ function addBookModal() {
   header.textContent = "Add a new book";
 }
 submitBtn.addEventListener("click", addBook);
+addBookBtn.onclick = openForm;
 //
