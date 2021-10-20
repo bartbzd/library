@@ -18,6 +18,10 @@ footer {
   height: 35px;
 }
 
+/* GRID and CARDS */
+.book-card {
+  background: grey;
+}
 /* FOOTER */
 i {
   margin: 0 10px;
