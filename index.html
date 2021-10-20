@@ -12,13 +12,27 @@
     <title>Library</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header>
+      <h1>Library</h1>
+    </header>
+    <main>
+      <div class="card-grid"></div>
+    </main>
+
     <footer>
       <a href="https://github.com/bartbzd/library">
         <i class="fab fa-github fa-lg"></i>
       </a>
     </footer>
+    <div class="modal" id="book-modal">
+      <form id="book-form" onsubmit="false">
+        <input type="text" class="input" id="title" placeholder="Title" required />
+        <input type="text" class="input" id="author" placeholder="Author" required />
+        <input type="number" class="input" id="pages" placeholder="Pages" required />
+        <input type="radio" id="read" />Have you read it?
+        <button type="button" id="submit">Add</button>
+      </form>
+    </div>
   </body>
   <script src="app.js"></script>
 </html>
