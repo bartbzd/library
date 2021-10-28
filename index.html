@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      rel="stylesheet"
-    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
     />
     <title>Library</title>
@@ -21,13 +22,16 @@
     <header>
       <h1>Library</h1>
     </header>
-    <main>
-      <div class="total-books">
-        <h4 class="book-count">Total Books:<span></span></h4>
-      </div>
-      <div class="card-grid"></div>
-    </main>
-
+    <div id="container">
+      <main>
+        <div class="collection">
+          <h4 class="book-count">Collection: <span></span></h4>
+        </div>
+        <div class="grid-container">
+          <div class="card-grid"></div>
+        </div>
+      </main>
+    </div>
     <footer>
       <a href="https://github.com/bartbzd/library">
         <i class="fab fa-github fa-lg"></i>
