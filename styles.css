@@ -9,9 +9,10 @@
 
 :root {
   --header-bg: #16172a;
-  --main-bg: #474973;
-  --card-bg: #8fbfe0;
-  --text-color: ;
+  --main-bg: #434967;
+  --card-bg: #222a45;
+  --text-color: #eff0fb;
+  --add-btn: #fc8a53;
 }
 /* ELEMENTS */
 html {
@@ -35,12 +36,14 @@ header {
 h1 {
   font-weight: 500;
   font-size: 2.5em;
+  color: var(--text-color);
 }
 h4 {
   padding: 10px 10px;
   background-color: var(--main-bg);
   border-radius: 25px;
   font-size: 0.8em;
+  color: var(--text-color);
 }
 /* GRID and CARDS */
 /* .grid-container {
@@ -63,8 +66,19 @@ h4 {
   padding: 10px;
   text-align: center;
   border-radius: 25px;
+  color: var(--text-color);
+  font-weight: 300;
 }
-
+.book-title {
+  background-color: #f3ec78;
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
 /* MODAL */
 .modal {
   display: none; /* Hidden by default */
@@ -110,12 +124,12 @@ footer {
 
 i {
   margin: 0 10px;
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
   transition: ease-in-out 0.15s;
 }
 i:visited {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 i:hover {
