@@ -52,12 +52,13 @@ function createCard(book) {
   card.setAttribute("data-id", myLibrary.indexOf(book));
 
   const title = document.createElement("h2");
+  title.classList.add("book-title");
   title.textContent = book.title;
 
-  const author = document.createElement("h2");
+  const author = document.createElement("h3");
   author.textContent = book.author;
 
-  const page = document.createElement("h3");
+  const page = document.createElement("h4");
   page.textContent = book.page + " pgs";
 
   const readBtn = document.createElement("button");
