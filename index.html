@@ -9,6 +9,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>Library</title>
   </head>
   <body>
@@ -16,6 +22,9 @@
       <h1>Library</h1>
     </header>
     <main>
+      <div class="total-books">
+        <h4 class="book-count">Total Books:<span></span></h4>
+      </div>
       <div class="card-grid"></div>
     </main>
 
@@ -26,11 +35,13 @@
     </footer>
     <div class="modal" id="book-modal">
       <form id="book-form" class="hidden">
+        <h2>Add a new book</h2>
         <input type="text" class="input" id="title" placeholder="Title" required />
         <input type="text" class="input" id="author" placeholder="Author" required />
         <input type="number" class="input" id="pages" placeholder="Pages" required />
         <input type="radio" id="read" />Have you read it?
         <button type="button" id="submit">Add</button>
+        <span class="close">&times;</span>
       </form>
     </div>
   </body>
