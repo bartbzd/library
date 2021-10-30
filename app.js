@@ -4,12 +4,14 @@ const bookForm = document.querySelector("form");
 const formModal = document.querySelector(".modal");
 const exitModal = document.querySelector(".close");
 // const deleteBook = document.querySelector(".delete-book");
-const addBookBtn = document.createElement("button");
-addBookBtn.textContent = "New";
-const mainDisplay = document.querySelector("main").append(addBookBtn);
+const addBookBtn = document.querySelector(".new-book-btn");
+const mainDisplay = document.querySelector("main");
 const totalBooks = document.querySelector("span");
+const formTitle = document.querySelector(".form-title");
 
 let myLibrary = [];
+let bookIndex = 0;
+
 function totalBookCount() {
   totalBooks.textContent = myLibrary.length;
 }
@@ -32,7 +34,7 @@ function BookFromInput() {
   return new Book(title, author, pages, read);
 }
 function addBook(e) {
-  e.preventDefault();
+  // e.preventDefault();
   const newBook = BookFromInput();
   if (newBook.title === "") {
     return;
@@ -46,6 +48,19 @@ function addBook(e) {
   formModal.style.display = "none";
   bookForm.reset();
 }
+function editBook(book) {
+  const editedBook = BookFromInput();
+  myLibrary.splice(bookIndex, 1, editedBook);
+  updateLibrary();
+  saveLibrary();
+  submitBtn.textContent = "Add";
+  bookForm.classList.add("hidden");
+  bookForm.classList.remove("form");
+  formModal.style.display = "none";
+  formTitle.textContent = "Add new book";
+  submitBtn.textContent = "Add";
+  bookForm.reset();
+}
 function createCard(book) {
   const card = document.createElement("div");
   card.classList.add("book-card");
@@ -56,10 +71,15 @@ function createCard(book) {
   title.textContent = book.title;
 
   const author = document.createElement("h3");
+  author.classList.add("book-author");
   author.textContent = book.author;
 
-  const page = document.createElement("h4");
+  const page = document.createElement("h3");
+  page.classList.add("book-page");
   page.textContent = book.page + " pgs";
+
+  const btns = document.createElement("div");
+  btns.classList.add("btns");
 
   const readBtn = document.createElement("button");
   if (book.read === true) {
@@ -67,6 +87,11 @@ function createCard(book) {
   } else {
     readBtn.textContent = "unread";
   }
+
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "Edit";
+  editBtn.classList.add = "edit-btn btn";
+
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
   deleteBtn.classList.add("delete-btn");
@@ -74,17 +99,26 @@ function createCard(book) {
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(page);
-  card.appendChild(readBtn);
-  card.appendChild(deleteBtn);
+  card.appendChild(btns);
+  btns.appendChild(readBtn);
+  btns.appendChild(editBtn);
+  btns.appendChild(deleteBtn);
   cardGrid.appendChild(card);
 
-  deleteBtn.addEventListener("click", () => {
-    myLibrary.splice(myLibrary.indexOf(book), 1);
+  readBtn.addEventListener("click", () => {
+    book.toggleStatus();
     updateLibrary();
     saveLibrary();
   });
-  readBtn.addEventListener("click", () => {
-    book.toggleStatus();
+
+  editBtn.addEventListener("click", () => {
+    formTitle.textContent = "Edit book";
+    submitBtn.textContent = "Edit";
+    openForm();
+    bookIndex = myLibrary.indexOf(book);
+  });
+  deleteBtn.addEventListener("click", () => {
+    myLibrary.splice(myLibrary.indexOf(book), 1);
     updateLibrary();
     saveLibrary();
   });
@@ -106,7 +140,13 @@ function openForm() {
 function closeModal() {
   formModal.style.display = "none";
 }
-submitBtn.addEventListener("click", addBook);
+submitBtn.addEventListener("click", () => {
+  if (submitBtn.textContent === "Add") {
+    addBook();
+  } else {
+    editBook();
+  }
+});
 addBookBtn.addEventListener("click", openForm);
 exitModal.addEventListener("click", closeModal);
 
