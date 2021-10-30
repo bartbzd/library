@@ -22,13 +22,16 @@
     <header>
       <h1>Library</h1>
     </header>
+    <div class="new-book">
+      <button class="new-book-btn">+</button>
+    </div>
     <div id="container">
       <main>
-        <div class="collection">
-          <h4 class="book-count">Collection: <span></span></h4>
-        </div>
         <div class="grid-container">
           <div class="card-grid"></div>
+        </div>
+        <div class="collection">
+          <h4 class="book-collection">Collection: <span></span></h4>
         </div>
       </main>
     </div>
@@ -39,7 +42,7 @@
     </footer>
     <div class="modal" id="book-modal">
       <form id="book-form" class="hidden">
-        <h2>Add a new book</h2>
+        <h2 class="form-title">Add new book</h2>
         <input type="text" class="input" id="title" placeholder="Title" required />
         <input type="text" class="input" id="author" placeholder="Author" required />
         <input type="number" class="input" id="pages" placeholder="Pages" required />
