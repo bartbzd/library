@@ -73,35 +73,53 @@ function createCard(book) {
   const author = document.createElement("h3");
   author.classList.add("book-author");
   author.textContent = book.author;
+  const underline = document.createElement("hr");
+  underline.classList.add("author-line");
 
   const page = document.createElement("h3");
   page.classList.add("book-page");
-  page.textContent = book.page + " pgs";
+  page.textContent = book.page + " pages";
 
+  const read = document.createElement("div");
+  read.classList.add("read-section");
   const btns = document.createElement("div");
   btns.classList.add("btns");
 
   const readBtn = document.createElement("button");
-  if (book.read === true) {
-    readBtn.textContent = "read";
-  } else {
-    readBtn.textContent = "unread";
-  }
+  readBtn.classList.add("read-btn");
+  const readIcon = document.createElement("i");
+  readIcon.classList.add("far", "fa-check-square", "read-icon");
+  const unreadIcon = document.createElement("i");
+  unreadIcon.classList.add("far", "fa-square", "unread-icon");
 
   const editBtn = document.createElement("button");
-  editBtn.textContent = "Edit";
-  editBtn.classList.add = "edit-btn btn";
+  editBtn.classList.add("edit-btn");
+  const editIcon = document.createElement("i");
+  editIcon.classList.add("fas", "fa-edit", "fas-5x", "edit-icon");
 
   const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "Delete";
   deleteBtn.classList.add("delete-btn");
+  const deleteIcon = document.createElement("i");
+  deleteIcon.classList.add("fas", "fa-trash-alt", "fas-5x", "delete-icon");
 
   card.appendChild(title);
   card.appendChild(author);
+  card.appendChild(underline);
   card.appendChild(page);
+
   card.appendChild(btns);
-  btns.appendChild(readBtn);
+  if (book.read === true) {
+    readBtn.appendChild(readIcon);
+    readIcon.style.color = "#dbf067";
+  } else {
+    readBtn.appendChild(unreadIcon);
+  }
+  editBtn.appendChild(editIcon);
+  deleteBtn.appendChild(deleteIcon);
+
   btns.appendChild(editBtn);
+  btns.appendChild(readBtn);
+
   btns.appendChild(deleteBtn);
   cardGrid.appendChild(card);
 
@@ -140,6 +158,7 @@ function openForm() {
 function closeModal() {
   formModal.style.display = "none";
 }
+
 submitBtn.addEventListener("click", () => {
   if (submitBtn.textContent === "Add") {
     addBook();
