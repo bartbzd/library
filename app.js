@@ -1,4 +1,4 @@
-const submitBtn = document.querySelector("#submit");
+const submitBtn = document.querySelector(".submit");
 const cardGrid = document.querySelector(".card-grid");
 const bookForm = document.querySelector("form");
 const formModal = document.querySelector(".modal");
