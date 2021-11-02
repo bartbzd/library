@@ -307,7 +307,9 @@ a:hover {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 750px) {
-  .book-card:hover,
+  .book-card:hover {
+    transform: translateY(0rem);
+  }
   .unread-icon:hover,
   .delete-icon:hover,
   .edit-icon:hover {
