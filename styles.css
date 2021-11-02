@@ -242,6 +242,7 @@ label {
   margin-top: 10px;
 }
 #read {
+  margin: 0 auto;
   margin-bottom: 10px;
 }
 #submit {
