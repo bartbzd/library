@@ -253,6 +253,7 @@ label {
   font-size: 16px;
   font-weight: 500;
   background-color: #00cccc;
+  color: var(--text-color);
 }
 .close {
   color: #7e87af;
