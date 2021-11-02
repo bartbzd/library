@@ -307,6 +307,7 @@ a:hover {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 750px) {
+  .book-card:hover,
   .unread-icon:hover,
   .delete-icon:hover,
   .edit-icon:hover {
