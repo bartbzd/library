@@ -214,16 +214,16 @@ h1 {
   padding: 20px;
   border-radius: 30px;
   width: 320px;
-  height: 360px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
-    0 4px 4px rgba(0, 0, 0, 0.15);
+  height: 350px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 2px 2px 2px rgba(0, 0, 0, 0.15),
+    4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 .form-title {
   color: var(--text-color);
 }
 input {
   width: 260px;
-  height: 25px;
+  height: 30px;
   border: none;
   margin: 0 auto;
   background-color: #6c7391;
@@ -238,20 +238,31 @@ label {
   color: var(--text-color);
   font-weight: 500;
   margin: 10px auto;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  width: 150px;
 }
 .radio-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
-  margin-top: 10px;
+  width: 150px;
 }
-
+input[type="radio"] {
+  height: 1.5em;
+}
 #read {
-  margin-top: 10px;
+  width: 150px;
+}
+.card-buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
 #submit {
   width: 100px;
   height: 35px;
-  margin: 5px auto;
+  float: left;
+  margin: 0 auto;
   margin-bottom: 0;
   border-radius: 20px;
   border: none;
@@ -259,22 +270,24 @@ label {
   font-weight: 500;
   background-color: #00cccc;
   color: var(--text-color);
+  cursor: pointer;
 }
 .close {
-  color: #7e87af;
+  color: var(--text-color);
   float: right;
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  width: 40px;
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
   margin: 0 auto;
   padding: 0 2px;
-  padding-top: 10px;
+  background-color: #f07167;
+  border-radius: 20px;
+  user-select: none;
 }
-.close:hover {
-  color: #f07167;
-  transition: ease-out 0.2s;
-}
+
 input::-webkit-input-placeholder {
   opacity: 0.5;
 }
