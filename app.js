@@ -8,8 +8,7 @@ const addBookBtn = document.querySelector(".new-book-btn");
 const mainDisplay = document.querySelector("main");
 const totalBooks = document.querySelector("span");
 const formTitle = document.querySelector(".form-title");
-const readToggle = document.querySelector("#read");
-const readText = document.querySelector("#read-unread");
+const radioBtn = document.querySelector(".radio-btn");
 
 let myLibrary = [];
 let bookIndex = 0;
@@ -140,8 +139,7 @@ function createCard(book) {
   editBtn.addEventListener("click", () => {
     formTitle.textContent = "Edit book";
     submitBtn.textContent = "Edit";
-    readToggle.classList.add("hidden");
-    readText.classList.add("hidden");
+    radioBtn.classList.add("hidden");
     openForm();
     bookIndex = myLibrary.indexOf(book);
   });
@@ -165,8 +163,7 @@ function openForm() {
   bookForm.classList.remove("hidden");
   formModal.style.display = "block";
   if (submitBtn.textContent === "Add") {
-    readToggle.classList.remove("hidden");
-    readText.classList.remove("hidden");
+    radioBtn.classList.remove("hidden");
   }
 }
 function closeModal() {
