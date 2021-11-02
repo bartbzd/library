@@ -40,17 +40,17 @@
         <i class="fab fa-github fa-2x ft-icon"></i>
       </a>
     </footer>
-    <div class="modal" id="book-modal">
+    <div class="modal">
       <form id="book-form" class="hidden">
         <h2 class="form-title">Add new book</h2>
-        <input type="text" class="input" id="title" placeholder="Title" required />
-        <input type="text" class="input" id="author" placeholder="Author" required />
-        <input type="number" class="input" id="pages" placeholder="Pages" required />
+        <input type="text" id="title" placeholder="Title" />
+        <input type="text" id="author" placeholder="Author" />
+        <input type="number" id="pages" placeholder="Pages" />
         <div class="radio-btn">
           <label id="read-unread">Completed?</label><input type="radio" id="read" />
         </div>
         <div class="card-buttons">
-          <button type="button" id="submit">Add</button>
+          <button type="button" class="submit">Add</button>
           <span class="close">Cancel</span>
         </div>
       </form>
