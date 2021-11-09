@@ -8,7 +8,7 @@ const addBookBtn = document.querySelector(".new-book-btn");
 const mainDisplay = document.querySelector("main");
 const totalBooks = document.querySelector("span");
 const formTitle = document.querySelector(".form-title");
-const radioBtn = document.querySelector(".radio-btn");
+const checkBox = document.querySelector(".checkbox");
 
 let myLibrary = [];
 let bookIndex = 0;
@@ -46,7 +46,7 @@ function addBook(e) {
 
   bookForm.classList.add("hidden");
   bookForm.classList.remove("form");
-  formModal.style.display = "none";
+  formModal.classList.remove("show-modal");
   bookForm.reset();
 }
 function editBook(book) {
@@ -60,8 +60,8 @@ function editBook(book) {
   submitBtn.textContent = "Add";
   bookForm.classList.add("hidden");
   bookForm.classList.remove("form");
-  formModal.style.display = "none";
-  formTitle.textContent = "Add new book";
+  formModal.classList.remove("show-modal");
+  formTitle.textContent = "Add book";
   submitBtn.textContent = "Add";
   bookForm.reset();
 }
@@ -139,7 +139,7 @@ function createCard(book) {
   editBtn.addEventListener("click", () => {
     formTitle.textContent = "Edit book";
     submitBtn.textContent = "Edit";
-    radioBtn.classList.add("hidden");
+    checkBox.style.display = "none";
     openForm();
     bookIndex = myLibrary.indexOf(book);
   });
@@ -160,19 +160,27 @@ function resetLibrary() {
   cardGrid.innerHTML = "";
 }
 function openForm() {
+  // formModal.classList.toggle("modal");
   bookForm.classList.remove("hidden");
-  formModal.style.display = "block";
+  formModal.classList.add("show-modal");
+  mainDisplay.classList.add("blur");
   if (submitBtn.textContent === "Add") {
-    radioBtn.classList.remove("hidden");
+    checkBox.style.display = "flex";
   }
 }
 function closeModal() {
-  formModal.style.display = "none";
-  formTitle.textContent = "Add new book";
-  submitBtn.textContent = "Add";
+  formModal.classList.remove("show-modal");
+  bookForm.classList.add("hidden");
+  mainDisplay.classList.remove("blur");
+  setTimeout(function () {
+    submitBtn.textContent = "Add";
+    formTitle.textContent = "Add book";
+  }, 150);
 }
 
 submitBtn.addEventListener("click", () => {
+  formModal.classList.add("show-modal");
+  mainDisplay.classList.remove("blur");
   if (submitBtn.textContent === "Add") {
     addBook();
   } else {
@@ -181,6 +189,11 @@ submitBtn.addEventListener("click", () => {
 });
 addBookBtn.addEventListener("click", openForm);
 exitModal.addEventListener("click", closeModal);
+window.addEventListener("click", e => {
+  if (e.target === formModal) {
+    closeModal();
+  }
+});
 
 //localStorage
 function saveLibrary() {
