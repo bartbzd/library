@@ -160,7 +160,6 @@ function resetLibrary() {
   cardGrid.innerHTML = "";
 }
 function openForm() {
-  // formModal.classList.toggle("modal");
   bookForm.classList.remove("hidden");
   formModal.classList.add("show-modal");
   mainDisplay.classList.add("blur");
