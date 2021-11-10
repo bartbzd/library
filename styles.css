@@ -20,14 +20,14 @@
 }
 
 /* MAIN */
-html {
+body {
   background-color: var(--card-bg);
 }
 main {
   transition: all 0.2s;
 }
 #container {
-  background-color: var(--card-bg);
+  /* background-color: var(--card-bg); */
   padding: 0 100px;
 }
 
