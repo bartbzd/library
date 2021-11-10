@@ -295,9 +295,11 @@ label {
 input[type="checkbox"] {
   height: 1.5em;
 }
-
+#completed {
+  margin-right: 10px;
+}
 #read {
-  width: 150px;
+  margin-left: 10px;
 }
 
 .card-buttons {
