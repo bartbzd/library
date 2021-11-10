@@ -196,6 +196,7 @@ window.addEventListener("click", e => {
 window.addEventListener("touchstart", e => {
   if (e.target === formModal) {
     closeModal();
+    formModal.remove();
   }
 });
 
