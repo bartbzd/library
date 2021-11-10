@@ -194,7 +194,9 @@ window.addEventListener("click", e => {
   }
 });
 window.addEventListener("touchstart", e => {
-  closeModal();
+  if (e.target === formModal) {
+    closeModal();
+  }
 });
 
 //localStorage
