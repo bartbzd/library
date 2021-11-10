@@ -300,6 +300,7 @@ input[type="checkbox"] {
   margin-right: 10px;
 }
 #read {
+  width: 100%;
   margin-left: 10px;
 }
 
