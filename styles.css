@@ -45,9 +45,9 @@ main {
 
 /* HEADER */
 header {
-  height: 110px;
+  height: 100px;
   text-align: center;
-  line-height: 110px;
+  line-height: 100px;
   box-shadow: 0 4px 4px rgba(var(--shadow), 0.15), 0 12px 12px rgba(var(--shadow), 0.15),
     0 14px 14px rgba(var(--shadow), 0.15);
 }
@@ -228,6 +228,8 @@ h1 {
   position: fixed;
   left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
