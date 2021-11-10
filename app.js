@@ -178,6 +178,8 @@ function closeModal() {
   }, 150);
 }
 
+addBookBtn.addEventListener("click", openForm);
+exitModal.addEventListener("click", closeModal);
 submitBtn.addEventListener("click", () => {
   formModal.classList.add("show-modal");
   mainDisplay.classList.remove("blur");
@@ -187,9 +189,12 @@ submitBtn.addEventListener("click", () => {
     editBook();
   }
 });
-addBookBtn.addEventListener("click", openForm);
-exitModal.addEventListener("click", closeModal);
 window.addEventListener("click", e => {
+  if (e.target === formModal) {
+    closeModal();
+  }
+});
+window.addEventListener("touchstart", e => {
   if (e.target === formModal) {
     closeModal();
   }
@@ -212,7 +217,6 @@ function getLibrary() {
   const storedLibrary = localStorage.getItem("myLibrary");
   myLibrary = JSON.parse(storedLibrary);
   myLibrary = myLibrary.map(book => new Book(book.title, book.author, book.page, book.read));
-
   updateLibrary();
 }
 findLibrary();
