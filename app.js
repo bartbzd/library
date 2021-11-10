@@ -9,6 +9,7 @@ const mainDisplay = document.querySelector("main");
 const totalBooks = document.querySelector("span");
 const formTitle = document.querySelector(".form-title");
 const checkBox = document.querySelector(".checkbox");
+const container = document.querySelector("#container");
 
 let myLibrary = [];
 let bookIndex = 0;
@@ -188,8 +189,8 @@ submitBtn.addEventListener("click", () => {
     editBook();
   }
 });
-window.addEventListener("mousedown", e => {
-  if (e.target === formModal) {
+window.addEventListener("click", e => {
+  if (!e || e.target === formModal) {
     closeModal();
   }
 });
