@@ -23,7 +23,9 @@
 html {
   background-color: var(--card-bg);
 }
-
+main {
+  transition: all 0.2s;
+}
 #container {
   background-color: var(--card-bg);
   padding: 0 100px;
@@ -230,7 +232,6 @@ h1 {
   height: 100%;
   overflow: auto;
   background-color: rgba(var(--shadow), 0.5);
-  /* transition: ease 2s; */
 }
 
 .show-modal {
