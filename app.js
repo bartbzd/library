@@ -1,7 +1,7 @@
 const submitBtn = document.querySelector(".submit");
 const cardGrid = document.querySelector(".card-grid");
 const bookForm = document.querySelector("form");
-const formModal = document.querySelector(".modal");
+const formModal = document.querySelector("#modal");
 const exitModal = document.querySelector(".close");
 // const deleteBook = document.querySelector(".delete-book");
 const addBookBtn = document.querySelector(".new-book-btn");
@@ -190,6 +190,11 @@ submitBtn.addEventListener("click", () => {
   }
 });
 window.addEventListener("click", e => {
+  if (e.target === formModal) {
+    closeModal();
+  }
+});
+window.addEventListener("touchstart", e => {
   if (e.target === formModal) {
     closeModal();
   }
