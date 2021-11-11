@@ -190,7 +190,7 @@ submitBtn.addEventListener("click", () => {
   }
 });
 window.addEventListener("click", e => {
-  if (!e || e.target === formModal) {
+  if (e.target === formModal) {
     closeModal();
   }
 });
