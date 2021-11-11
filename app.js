@@ -48,9 +48,10 @@ function addBook(e) {
   bookForm.classList.add("hidden");
   bookForm.classList.remove("form");
   formModal.classList.remove("show-modal");
+  mainDisplay.classList.remove("blur");
   bookForm.reset();
 }
-function editBook(book) {
+function editBook() {
   const editedBook = BookFromInput();
   if (editedBook.title === "") {
     return;
@@ -58,12 +59,13 @@ function editBook(book) {
   myLibrary.splice(bookIndex, 1, editedBook);
   updateLibrary();
   saveLibrary();
-  submitBtn.textContent = "Add";
+  // submitBtn.textContent = "Add";
   bookForm.classList.add("hidden");
   bookForm.classList.remove("form");
   formModal.classList.remove("show-modal");
+  mainDisplay.classList.remove("blur");
   formTitle.textContent = "Add book";
-  submitBtn.textContent = "Add";
+  // submitBtn.textContent = "Add";
   bookForm.reset();
 }
 function createCard(book) {
@@ -181,8 +183,8 @@ function closeModal() {
 addBookBtn.addEventListener("click", openForm);
 exitModal.addEventListener("click", closeModal);
 submitBtn.addEventListener("click", () => {
-  formModal.classList.add("show-modal");
-  mainDisplay.classList.remove("blur");
+  // formModal.classList.add("show-modal");
+
   if (submitBtn.textContent === "Add") {
     addBook();
   } else {
@@ -194,11 +196,11 @@ window.addEventListener("click", e => {
     closeModal();
   }
 });
-window.addEventListener("touchstart", e => {
-  if (e.target === formModal) {
-    closeModal();
-  }
-});
+// window.addEventListener("touchstart", e => {
+//   if (e.target === formModal) {
+//     closeModal();
+//   }
+// });
 
 //localStorage
 function saveLibrary() {
