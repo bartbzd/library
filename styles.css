@@ -4,6 +4,7 @@
   outline: none;
   padding: 0;
   margin: 0;
+  border: 0;
   font-family: "Ubuntu", sans-serif; /*300-400-500*/
 }
 
@@ -347,8 +348,8 @@ footer {
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  position: fixed;
-  bottom: 0;
+  position: sticky;
+  bottom: 10px;
   width: 100%;
   margin-bottom: 20px;
   margin-left: 20px;
