@@ -40,12 +40,12 @@
         <i class="fab fa-github fa-2x ft-icon"></i>
       </a>
     </footer>
-    <div class="modal">
+    <div class="modal" id="modal">
       <form id="book-form" class="hidden">
         <h2 class="form-title">Add book</h2>
-        <input type="text" id="title" placeholder="Title" />
-        <input type="text" id="author" placeholder="Author" />
-        <input type="number" id="pages" placeholder="Pages" />
+        <input type="text" id="title" placeholder="Title" required />
+        <input type="text" id="author" placeholder="Author" required />
+        <input type="number" id="pages" placeholder="Pages" required />
         <div class="checkbox">
           <label id="completed">Completed?</label><input type="checkbox" id="read" />
         </div>
