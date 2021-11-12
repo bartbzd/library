@@ -2,7 +2,7 @@ const submitBtn = document.querySelector(".submit");
 const cardGrid = document.querySelector(".card-grid");
 const bookForm = document.querySelector("form");
 const modal = document.querySelector("#modal");
-const exitModal = document.querySelector(".close");
+const exitBtn = document.querySelector(".close");
 // const deleteBook = document.querySelector(".delete-book");
 const newBookBtn = document.querySelector(".new-book-btn");
 const mainDisplay = document.querySelector("main");
@@ -35,8 +35,7 @@ function BookFromInput() {
 
   return new Book(title, author, pages, read);
 }
-function addBook(e) {
-  // e.preventDefault();
+function addBook() {
   const newBook = BookFromInput();
   if (newBook.title === "") {
     return;
@@ -45,9 +44,7 @@ function addBook(e) {
   updateLibrary();
   saveLibrary();
 
-  bookForm.classList.add("hidden");
-  bookForm.classList.remove("form");
-  modal.classList.remove("show-modal");
+  modal.classList.toggle("show-modal");
   mainDisplay.classList.remove("blur");
   bookForm.reset();
 }
@@ -60,12 +57,10 @@ function editBook() {
   updateLibrary();
   saveLibrary();
   // submitBtn.textContent = "Add";
-  bookForm.classList.add("hidden");
-  bookForm.classList.remove("form");
-  modal.classList.remove("show-modal");
+  modal.classList.toggle("show-modal");
   mainDisplay.classList.remove("blur");
   formTitle.textContent = "Add book";
-  // submitBtn.textContent = "Add";
+
   bookForm.reset();
 }
 function createCard(book) {
@@ -126,10 +121,8 @@ function createCard(book) {
   }
   editBtn.appendChild(editIcon);
   deleteBtn.appendChild(deleteIcon);
-
   btns.appendChild(editBtn);
   btns.appendChild(readBtn);
-
   btns.appendChild(deleteBtn);
   cardGrid.appendChild(card);
 
@@ -143,9 +136,10 @@ function createCard(book) {
     formTitle.textContent = "Edit book";
     submitBtn.textContent = "Edit";
     checkBox.style.display = "none";
-    openForm();
+    openModal();
     bookIndex = myLibrary.indexOf(book);
   });
+
   deleteBtn.addEventListener("click", () => {
     myLibrary.splice(myLibrary.indexOf(book), 1);
     updateLibrary();
@@ -162,28 +156,26 @@ function updateLibrary() {
 function resetLibrary() {
   cardGrid.innerHTML = "";
 }
-function openForm() {
-  bookForm.classList.remove("hidden");
-  modal.classList.add("show-modal");
-  mainDisplay.classList.add("blur");
+function openModal() {
+  modal.classList.toggle("show-modal");
+  mainDisplay.classList.toggle("blur");
   if (submitBtn.textContent === "Add") {
     checkBox.style.display = "flex";
   }
 }
 function closeModal() {
-  modal.classList.remove("show-modal");
-  bookForm.classList.add("hidden");
-  mainDisplay.classList.remove("blur");
+  modal.classList.toggle("show-modal");
+  mainDisplay.classList.toggle("blur");
   setTimeout(function () {
     submitBtn.textContent = "Add";
     formTitle.textContent = "Add book";
   }, 150);
 }
 
-newBookBtn.addEventListener("click", openForm);
-exitModal.addEventListener("click", closeModal);
+newBookBtn.addEventListener("click", openModal);
+exitBtn.addEventListener("click", closeModal);
 submitBtn.addEventListener("click", () => {
-  modal.classList.add("show-modal");
+  // modal.classList.add("show-modal");
 
   if (submitBtn.textContent === "Add") {
     addBook();
