@@ -180,7 +180,7 @@ submitBtn.addEventListener("click", () => {
     editBook();
   }
 });
-window.addEventListener("click", e => {
+modal.addEventListener("click", e => {
   if (e.target === modal) {
     closeModal();
   }
