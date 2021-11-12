@@ -124,7 +124,7 @@ function createCard(book) {
   btns.appendChild(deleteBtn);
   cardGrid.appendChild(card);
 
-  readBtn.addEventListener("mousedown", () => {
+  readBtn.addEventListener("click", () => {
     book.toggleStatus();
     updateLibrary();
     saveLibrary();
