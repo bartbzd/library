@@ -183,7 +183,7 @@ function closeModal() {
 addBookBtn.addEventListener("click", openForm);
 exitModal.addEventListener("click", closeModal);
 submitBtn.addEventListener("click", () => {
-  // formModal.classList.add("show-modal");
+  formModal.classList.add("show-modal");
 
   if (submitBtn.textContent === "Add") {
     addBook();
