@@ -1,7 +1,7 @@
 const submitBtn = document.querySelector(".submit");
 const cardGrid = document.querySelector(".card-grid");
 const bookForm = document.querySelector("form");
-const modal = document.querySelector("#modal");
+const modal = document.querySelector(".modal");
 const exitBtn = document.querySelector(".close");
 // const deleteBook = document.querySelector(".delete-book");
 const newBookBtn = document.querySelector(".new-book-btn");
@@ -45,7 +45,7 @@ function addBook() {
   saveLibrary();
 
   modal.classList.toggle("show-modal");
-  mainDisplay.classList.remove("blur");
+  mainDisplay.classList.toggle("blur");
   bookForm.reset();
 }
 function editBook() {
@@ -58,7 +58,7 @@ function editBook() {
   saveLibrary();
   // submitBtn.textContent = "Add";
   modal.classList.toggle("show-modal");
-  mainDisplay.classList.remove("blur");
+  mainDisplay.classList.toggle("blur");
   formTitle.textContent = "Add book";
 
   bookForm.reset();
@@ -176,7 +176,6 @@ newBookBtn.addEventListener("click", openModal);
 exitBtn.addEventListener("click", closeModal);
 submitBtn.addEventListener("click", () => {
   // modal.classList.add("show-modal");
-
   if (submitBtn.textContent === "Add") {
     addBook();
   } else {
