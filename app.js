@@ -36,9 +36,6 @@ function BookFromInput() {
   return new Book(title, author, pages, read);
 }
 function addBook() {
-  modal.classList.toggle("show-modal");
-  mainDisplay.classList.toggle("blur");
-  bookForm.reset();
   const newBook = BookFromInput();
   if (newBook.title === "") {
     return;
@@ -46,6 +43,9 @@ function addBook() {
   myLibrary.push(newBook);
   updateLibrary();
   saveLibrary();
+  modal.classList.toggle("show-modal");
+  mainDisplay.classList.toggle("blur");
+  bookForm.reset();
 }
 function editBook() {
   const editedBook = BookFromInput();
@@ -55,11 +55,10 @@ function editBook() {
   myLibrary.splice(bookIndex, 1, editedBook);
   updateLibrary();
   saveLibrary();
-  // submitBtn.textContent = "Add";
+  submitBtn.textContent = "Add";
   modal.classList.toggle("show-modal");
   mainDisplay.classList.toggle("blur");
   formTitle.textContent = "Add book";
-
   bookForm.reset();
 }
 function createCard(book) {
