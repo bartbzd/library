@@ -10,9 +10,9 @@
 
 :root {
   --header-bg: #16172a;
-  --main-bg: #434967;
-  --second-bg: #6c7391;
-  --card-bg: #222a45;
+  --card-bg: #333a5c;
+  --second-bg: #606888;
+  --main-bg: #1e2541;
   --text-color: #eff0fb;
   --add-btn: #fc8a53;
   --shadow: 0, 0, 0;
@@ -22,13 +22,13 @@
 
 /* MAIN */
 body {
-  background-color: var(--card-bg);
+  background-color: var(--main-bg);
 }
 main {
   transition: all 0.2s;
 }
 #container {
-  /* background-color: var(--card-bg); */
+  /* background-color: var(--main-bg); */
   padding: 0 100px;
 }
 
@@ -69,7 +69,7 @@ h1 {
 }
 
 .book-card {
-  background-color: var(--main-bg);
+  background-color: var(--card-bg);
   width: 250px;
   height: 260px;
   padding: 10px;
@@ -146,7 +146,7 @@ h1 {
   padding: 10px 20px;
   border-radius: 25px;
   color: var(--text-color);
-  background-color: var(--main-bg);
+  background-color: var(--card-bg);
   box-shadow: 0 1px 1px rgba(var(--shadow), 0.15), 0 2px 2px rgba(var(--shadow), 0.15),
     0 4px 4px rgba(var(--shadow), 0.15);
 }
@@ -165,7 +165,7 @@ h1 {
   width: 70px;
   border: none;
   border-radius: 35px;
-  color: var(--card-bg);
+  color: var(--main-bg);
   transition: ease-in-out 0.15s;
   background: linear-gradient(
     204deg,
@@ -252,10 +252,10 @@ h1 {
 }
 /* FORM */
 #book-form {
-  background-color: var(--main-bg);
+  background-color: var(--card-bg);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   text-align: center;
   margin: 15% auto;
   padding: 20px;
@@ -275,8 +275,18 @@ h1 {
 .form-title {
   font-size: 1.8em;
   color: var(--text-color);
+  margin-top: 15px;
 }
-
+#title {
+  margin-top: 30px;
+}
+#author,
+#pages {
+  margin-top: 20px;
+}
+#pages {
+  margin-bottom: 20px;
+}
 input {
   width: 260px;
   height: 30px;
@@ -295,7 +305,7 @@ input::placeholder {
 label {
   color: var(--text-color);
   font-weight: 500;
-  margin: 10px auto;
+  margin: 0 auto;
   /* margin-bottom: 20px; */
 }
 
@@ -305,6 +315,7 @@ label {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  margin-bottom: 15px;
   width: 150px;
 }
 
@@ -324,7 +335,7 @@ input[type="checkbox"] {
 .card-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 0 10px;
+  margin: auto 10px;
 }
 
 .submit,
@@ -333,7 +344,7 @@ input[type="checkbox"] {
   font-weight: 500;
   width: 100px;
   height: 35px;
-  color: var(--text-color);
+  color: var(--main-bg);
   cursor: pointer;
   border-radius: 20px;
 }
