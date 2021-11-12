@@ -36,6 +36,9 @@ function BookFromInput() {
   return new Book(title, author, pages, read);
 }
 function addBook() {
+  modal.classList.toggle("show-modal");
+  mainDisplay.classList.toggle("blur");
+  bookForm.reset();
   const newBook = BookFromInput();
   if (newBook.title === "") {
     return;
@@ -43,10 +46,6 @@ function addBook() {
   myLibrary.push(newBook);
   updateLibrary();
   saveLibrary();
-
-  modal.classList.toggle("show-modal");
-  mainDisplay.classList.toggle("blur");
-  bookForm.reset();
 }
 function editBook() {
   const editedBook = BookFromInput();
