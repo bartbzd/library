@@ -363,6 +363,7 @@ footer {
   bottom: 10px;
   left: 10px;
   width: 100%;
+  z-index: 1;
   /* margin-bottom: 20px; */
   /* margin-left: 20px; */
   height: 35px;
