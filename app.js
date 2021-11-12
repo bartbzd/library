@@ -1,10 +1,10 @@
 const submitBtn = document.querySelector(".submit");
 const cardGrid = document.querySelector(".card-grid");
 const bookForm = document.querySelector("form");
-const formModal = document.querySelector("#modal");
+const modal = document.querySelector("#modal");
 const exitModal = document.querySelector(".close");
 // const deleteBook = document.querySelector(".delete-book");
-const addBookBtn = document.querySelector(".new-book-btn");
+const newBookBtn = document.querySelector(".new-book-btn");
 const mainDisplay = document.querySelector("main");
 const totalBooks = document.querySelector("span");
 const formTitle = document.querySelector(".form-title");
@@ -47,7 +47,7 @@ function addBook(e) {
 
   bookForm.classList.add("hidden");
   bookForm.classList.remove("form");
-  formModal.classList.remove("show-modal");
+  modal.classList.remove("show-modal");
   mainDisplay.classList.remove("blur");
   bookForm.reset();
 }
@@ -62,7 +62,7 @@ function editBook() {
   // submitBtn.textContent = "Add";
   bookForm.classList.add("hidden");
   bookForm.classList.remove("form");
-  formModal.classList.remove("show-modal");
+  modal.classList.remove("show-modal");
   mainDisplay.classList.remove("blur");
   formTitle.textContent = "Add book";
   // submitBtn.textContent = "Add";
@@ -164,14 +164,14 @@ function resetLibrary() {
 }
 function openForm() {
   bookForm.classList.remove("hidden");
-  formModal.classList.add("show-modal");
+  modal.classList.add("show-modal");
   mainDisplay.classList.add("blur");
   if (submitBtn.textContent === "Add") {
     checkBox.style.display = "flex";
   }
 }
 function closeModal() {
-  formModal.classList.remove("show-modal");
+  modal.classList.remove("show-modal");
   bookForm.classList.add("hidden");
   mainDisplay.classList.remove("blur");
   setTimeout(function () {
@@ -180,10 +180,10 @@ function closeModal() {
   }, 150);
 }
 
-addBookBtn.addEventListener("click", openForm);
+newBookBtn.addEventListener("click", openForm);
 exitModal.addEventListener("click", closeModal);
 submitBtn.addEventListener("click", () => {
-  formModal.classList.add("show-modal");
+  modal.classList.add("show-modal");
 
   if (submitBtn.textContent === "Add") {
     addBook();
@@ -192,12 +192,12 @@ submitBtn.addEventListener("click", () => {
   }
 });
 window.addEventListener("click", e => {
-  if (e.target === formModal) {
+  if (e.target === modal) {
     closeModal();
   }
 });
 // window.addEventListener("touchstart", e => {
-//   if (e.target === formModal) {
+//   if (e.target === modal) {
 //     closeModal();
 //   }
 // });
