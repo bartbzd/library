@@ -9,3 +9,8 @@
 - JavaScript
 
 ## Things I learned:
+
+-Modal design
+-Animations
+-Web Storage API (localStorage)
+-Object Constructors
