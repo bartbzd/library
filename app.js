@@ -3,7 +3,6 @@ const cardGrid = document.querySelector(".card-grid");
 const bookForm = document.querySelector("form");
 const modal = document.querySelector(".modal");
 const exitBtn = document.querySelector(".close");
-// const deleteBook = document.querySelector(".delete-book");
 const newBookBtn = document.querySelector(".new-book-btn");
 const mainDisplay = document.querySelector("main");
 const totalBooks = document.querySelector("span");
@@ -24,9 +23,11 @@ function Book(title, author, page, read) {
   this.page = page;
   this.read = read;
 }
+
 Book.prototype.toggleStatus = function () {
   this.read = !this.read;
 };
+
 function BookFromInput() {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
@@ -35,32 +36,24 @@ function BookFromInput() {
 
   return new Book(title, author, pages, read);
 }
+
 function addBook() {
   const newBook = BookFromInput();
-  if (newBook.title === "") {
-    return;
-  }
   myLibrary.push(newBook);
   updateLibrary();
   saveLibrary();
-  modal.classList.toggle("show-modal");
-  mainDisplay.classList.toggle("blur");
-  bookForm.reset();
 }
+
 function editBook() {
   const editedBook = BookFromInput();
-  if (editedBook.title === "") {
-    return;
-  }
   myLibrary.splice(bookIndex, 1, editedBook);
   updateLibrary();
   saveLibrary();
+
   submitBtn.textContent = "Add";
-  modal.classList.toggle("show-modal");
-  mainDisplay.classList.toggle("blur");
   formTitle.textContent = "Add book";
-  bookForm.reset();
 }
+
 function createCard(book) {
   const card = document.createElement("div");
   card.classList.add("book-card");
@@ -134,7 +127,7 @@ function createCard(book) {
     formTitle.textContent = "Edit book";
     submitBtn.textContent = "Edit";
     checkBox.style.display = "none";
-    openModal();
+    openForm();
     bookIndex = myLibrary.indexOf(book);
   });
 
@@ -144,6 +137,7 @@ function createCard(book) {
     saveLibrary();
   });
 }
+
 function updateLibrary() {
   resetLibrary();
   totalBookCount();
@@ -151,45 +145,48 @@ function updateLibrary() {
     createCard(book);
   });
 }
+
 function resetLibrary() {
   cardGrid.innerHTML = "";
 }
-function openModal() {
+
+function toggleModal() {
   modal.classList.toggle("show-modal");
   mainDisplay.classList.toggle("blur");
+}
+
+function openForm() {
+  toggleModal();
   if (submitBtn.textContent === "Add") {
     checkBox.style.display = "flex";
   }
 }
-function closeModal() {
-  modal.classList.toggle("show-modal");
-  mainDisplay.classList.toggle("blur");
+function closeForm() {
+  toggleModal();
+  bookForm.reset();
   setTimeout(function () {
     submitBtn.textContent = "Add";
     formTitle.textContent = "Add book";
   }, 150);
 }
 
-newBookBtn.addEventListener("click", openModal);
-exitBtn.addEventListener("click", closeModal);
-submitBtn.addEventListener("click", () => {
-  // modal.classList.add("show-modal");
+newBookBtn.addEventListener("click", openForm);
+exitBtn.addEventListener("click", closeForm);
+bookForm.addEventListener("submit", e => {
+  e.preventDefault();
   if (submitBtn.textContent === "Add") {
     addBook();
   } else {
     editBook();
   }
+  toggleModal();
+  bookForm.reset();
 });
 modal.addEventListener("click", e => {
   if (e.target === modal) {
-    closeModal();
+    closeForm();
   }
 });
-// window.addEventListener("touchstart", e => {
-//   if (e.target === modal) {
-//     closeModal();
-//   }
-// });
 
 //localStorage
 function saveLibrary() {
