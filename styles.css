@@ -145,6 +145,7 @@ h1 {
 }
 
 .book-collection {
+  display: none;
   font-size: 0.8em;
   margin-top: 10px;
   margin: 10px 10px;

@@ -6,7 +6,7 @@ const exitBtn = document.querySelector(".close")
 const newBookBtn = document.querySelector(".new-book-btn")
 const mainDisplay = document.querySelector("main")
 const totalBooks = document.querySelector("span")
-const collection = document.querySelector(".collection")
+const collection = document.querySelector(".book-collection")
 const formTitle = document.querySelector(".form-title")
 const checkBox = document.querySelector(".checkbox")
 const container = document.querySelector("#container")
@@ -16,10 +16,10 @@ let bookIndex = 0
 
 function totalBookCount() {
   totalBooks.textContent = myLibrary.length
-  if (myLibrary.length === 0) {
-    collection.style.display = "none"
-  } else {
+  if (myLibrary.length > 0) {
     collection.style.display = "flex"
+  } else {
+    collection.style.display = "none"
   }
 }
 
