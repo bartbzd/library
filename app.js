@@ -145,7 +145,17 @@ function createCard(book) {
   })
 }
 
+function checkLibrary() {
+  const message = document.querySelector(".nothing-message")
+  if (myLibrary.length > 0) {
+    message.style.display = "none"
+  }
+  if (myLibrary.length === 0) {
+    message.style.display = "block"
+  }
+}
 function updateLibrary() {
+  checkLibrary()
   resetLibrary()
   totalBookCount()
   myLibrary.forEach((book) => {

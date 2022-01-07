@@ -60,6 +60,11 @@ h1 {
 }
 
 /* GRID and CARDS */
+.nothing-message {
+  margin-top: 50px;
+  text-align: center;
+  color: var(--second-bg);
+}
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
