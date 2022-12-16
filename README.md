@@ -1,6 +1,8 @@
 # Library
 
-- Library application for storing books.
+![app-picture](https://github.com/bartbzd/library/blob/main/img/library-pic.png)
+
+### [Live Demo](https://bartbzd.github.io/library/)
 
 ## Languages used:
 
